@@ -1,1 +1,59 @@
-<p>blog works!</p>
+<!-- <div class="container-fluid bg-secondary ">
+    <div class="row mt-4">
+        <div class="col-8 ">
+            <h1>Astroblog</h1>
+        </div>
+        <div class="col-4 center">
+            <label>Filtrar por categoria</label>
+            <input type="text" class="form-control" (input)="onChangeCategoria($event)">
+        </div>
+    </div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg bg-secondary">
+    <h1 class="navbar-brand">Astroblog</h1>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <button class="btn btn-block btn-outline-light" [routerLink]="['/new']">Agregar post</button>
+          </li>
+          <li class="nav-item">
+            <input type="text" class="form-control" placeholder="Filtrar categoria" (input)="onChangeCategoria($event)">
+          </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- <div class="posts">
+    <div class="post" *ngFor="let post of posts">
+        <h3>{{ post.titulo }}</h3>
+        <p>{{ post.texto }}</p>
+        <p>{{ post.autor }}</p>
+        <p>{{ post.imagen }}</p>
+        <p>{{ post.fecha }}</p>
+        <p>{{ post.categoria }}</p>
+
+    </div>
+</div> -->
+
+<div class="container mt-5 rounded">
+    <div class="card mb-4" *ngFor="let post of posts">
+        <div class="row d-flex flex-row">
+            <div class="col-3">
+                <img [src]="post.imagen" class="card-img">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="card-body">
+                <h3 class="card-title">{{post.titulo}}</h3>
+                <p class="card-text">{{post.texto}}</p>
+                <div class="colum d-flex justify-content-around">
+                    <p class="card-text">Autor: {{post.autor}}</p>
+                    <p class="card-text">Fecha: {{post.fecha}}</p>
+                    <p class="card-text">Categoria: {{post.categoria}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
